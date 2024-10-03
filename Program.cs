@@ -9,7 +9,7 @@ namespace SalesWebMVC
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<BancoContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("BancoContext") ?? throw new InvalidOperationException("Connection string 'BancoContext' not found.")));
+                options.UseMySql(builder.Configuration.GetConnectionString("DataBase"), new MySqlServerVersion(new Version(8,0,39))));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
