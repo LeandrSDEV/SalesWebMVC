@@ -1,7 +1,7 @@
-﻿@model Seller
+﻿@model SalesWebMVC.Models.ViewModel.SellerFormViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cadastro";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -13,20 +13,24 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div class="list-group">
-                <label asp-for="Name" class="form-label"></label>
-                <input asp-for="Name" class="form-control"></>
+                <label asp-for="Seller.Name" class="form-label"></label>
+                <input asp-for="Seller.Name" class="form-control"></>
             </div>
             <div class="list-group">
-                <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control"></>
+                <label asp-for="Seller.Email" class="form-label"></label>
+                <input asp-for="Seller.Email" class="form-control"></>
             </div>
             <div class="list-group">
-                <label asp-for="BirthDate" class="form-label"></label>
-                <input asp-for="BirthDate" class="form-control"></>
+                <label asp-for="Seller.BirthDate" class="form-label"></label>
+                <input asp-for="Seller.BirthDate" class="form-control"></>
             </div>
-            <div class="list-group mb-3">
-                <label asp-for="BaseSaalary" class="form-label"></label>
-                <input asp-for="BaseSaalary" class="form-control"></>
+            <div class="list-group">
+                <label asp-for="Seller.BaseSaalary" class="form-label"></label>
+                <input asp-for="Seller.BaseSaalary" class="form-control"></>
+            </div>
+            <div class="list-group mb-2">
+                <label asp-for="Seller.DepartmentId" class="form-label"></label>
+                <select asp-for="Seller.DepartmentId" asp-items="@(new SelectList(Model.Departments, "Id", "Name"))" class="form-control"></select>
             </div>
             <div>
                 <input type="submit" value="Create" class="btn btn-primary"></input>
