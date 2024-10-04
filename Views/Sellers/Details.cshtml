@@ -1,17 +1,17 @@
 ﻿@model Seller
 
 @{
-    ViewData["Title"] = "Cadastro";
+    ViewData["Title"] = "Details";
 }
-<br />
-<h3>Are your sure you wawnt to delete this?</h3>
-<br />
-<div class="row">
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
     <h4>Seller</h4>
     <hr/>
     <dl class="col-sm-3">
         <dt class="fw-bold">
-            @Html.DisplayNameFor(model=> model.Name)
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Name)
@@ -34,12 +34,15 @@
         <dd>
             @Html.DisplayFor(model => model.BaseSaalary)
         </dd>
+        <dt class="fw-bold">
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Department.Name)
+        </dd>
     </dl>
-
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id"></input>
-        <input type="submit" value="Delete" class="btn btn-danger"></input>
-        <a asp-action="Index">Back to List</a>
-    </form>
-
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index">Back to List</a>
 </div>
